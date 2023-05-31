@@ -10,26 +10,30 @@
     <body style="margin: 0; overflow: hidden;">
         <a-scene
             vr-mode-ui="enabled: false;"
-            loading-screen="enabled: false;"
+            loading-screen="enabled: true;"
             arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
             id="scene"
             embedded
             gesture-detector
         >
-            <a-entity gltf-model="assets/Housing_New.gltf" scale="1 1 1"></a-entity>
-            <a-marker-camera
+            <a-nft
                 id="animated-marker"
-                type="pattern"
+                type="nft"
                 preset="custom"
-                url="assets/SOFC-marker.patt"
+                url="assets/SOFC-marker.png"
                 raycaster="objects: .clickable"
                 emitevents="true"
                 cursor="fuse: false; rayOrigin: mouse;"
                 id="markerA"
-            >                
-            </a-marker-camera>
+                smooth="true"
+                smoothCount="10"
+                smoothTolerance=".01"
+                smoothThreshold="5"
+            >
+                <a-entity gltf-model="assets/Housing_New.gltf" scale="1 1 1"></a-entity>
+            </a-nft>
 
-<!--            <a-entity camera></a-entity>-->
+            <a-entity camera></a-entity>
         </a-scene>
     </body>
 </html>
