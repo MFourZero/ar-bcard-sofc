@@ -5,9 +5,34 @@
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
+
+        <style>
+            .arjs-loader {
+              height: 100%;
+              width: 100%;
+              position: absolute;
+              top: 0;
+              left: 0;
+              background-color: rgba(0, 0, 0, 0.8);
+              z-index: 9999;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+      
+            .arjs-loader div {
+              text-align: center;
+              font-size: 1.25em;
+              color: white;
+            }
+          </style>
+
     </head>
 
     <body style="margin: 0; overflow: hidden;">
+        <div class="arjs-loader">
+            <div>Loading, please wait...</div>
+        </div>        
         <a-scene
             vr-mode-ui="enabled: false;"
             loading-screen="enabled: true;"
@@ -17,10 +42,9 @@
             gesture-detector
         >
             <a-nft
-                id="animated-marker"
                 type="nft"
                 preset="custom"
-                url="assets/SOFC-marker.png"
+                url="assets/SOFC-marker.patt"
                 raycaster="objects: .clickable"
                 emitevents="true"
                 cursor="fuse: false; rayOrigin: mouse;"
@@ -30,7 +54,7 @@
                 smoothTolerance=".01"
                 smoothThreshold="5"
             >
-                <a-entity gltf-model="assets/Housing_New.gltf" scale="1 1 1"></a-entity>
+                <a-entity gltf-model="assets/Housing_New.gltf" scale="2 2 2"></a-entity>
             </a-nft>
 
             <a-entity camera></a-entity>
