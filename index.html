@@ -15,7 +15,7 @@
         <a-scene
             vr-mode-ui="enabled: false;"
             renderer="logarithmicDepthBuffer: true;"
-            loading-screen="enabled: true;"
+            loading-screen="enabled: false;"
             arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
             id="scene"
             embedded
@@ -23,7 +23,6 @@
         >
             <a-nft
                 type="nft"
-                preset="custom"
                 url="assets/SOFC-descriptor"
                 raycaster="objects: .clickable"
                 emitevents="true"
