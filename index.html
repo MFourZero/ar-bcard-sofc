@@ -25,12 +25,15 @@
                 cursor="fuse: false; rayOrigin: mouse;"
                 id="markerA"
             >
-                <a-entity gltf-model="assets/Housing_New.gltf" scale="1 1 1"></a-entity>
+                <a-entity id="sofc" gltf-model="assets/Housing_New.gltf" scale="1 1 1"></a-entity>
             </a-marker>
             <a-entity
-                light="type: spot; target: #markerA"
-                position="10 20 20">
+                light="type: spot; target: #sofc"
+                position="10 5 20">
             </a-entity>
+            <a-entity
+                light="type: ambient; intensity: 0.8">
+            </a-entity>            
             <a-entity camera></a-entity>
         </a-scene>
     </body>
