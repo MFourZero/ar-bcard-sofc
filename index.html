@@ -5,7 +5,7 @@
         <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
         <meta http-equiv="Pragma" content="no-cache" />
         <meta http-equiv="Expires" content="0" />
-        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
@@ -35,10 +35,21 @@
                 light="type: spot; target: #sofc"
                 position="10 5 20">
             </a-entity>
-            <a-entity
-                light="type: ambient; intensity: 2">
-            </a-entity>            
-            <a-entity camera></a-entity>
+            <a-light
+                type="directional"
+                position="-5 10 -5"
+                intensity="1"
+                color="white"
+                >
+            </a-light>
+            <a-light
+                type="directional"
+                position="5 10 8"
+                intensity="1"
+                color="white"
+            >
+            </a-light>            
+            <a-camera></a-camera>
         </a-scene>
     </body>
 </html>
