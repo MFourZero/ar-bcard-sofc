@@ -21,6 +21,7 @@
             renderer="logarithmicDepthBuffer: true;"
             vr-mode-ui="enabled: false;"
             gesture-detector
+            light="defaultLightsEnabled: false"
             id="scene"            
         >
             <a-assets>
@@ -50,15 +51,19 @@
                     gesture-handler
                 ></a-entity>
                 <a-light
+                    type="directional"
                     position="-5 10 -5"
                     intensity="1"
                     color="white"
+                    target="#sofc-model"
                     >
                 </a-light>
                 <a-light
+                    type="directional"
                     position="5 10 8"
                     intensity="1"
                     color="white"
+                    target="#sofc-model"
                 >
                 </a-light>
             </a-marker>              
