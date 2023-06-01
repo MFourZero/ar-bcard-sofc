@@ -2,9 +2,12 @@
 <html>
     <head>
         <title>SOFC AR</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
         <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
         <meta http-equiv="Pragma" content="no-cache" />
         <meta http-equiv="Expires" content="0" />
+
         <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
@@ -13,13 +16,21 @@
 
     <body style="margin: 0; overflow: hidden;">
         <a-scene
-            vr-mode-ui="enabled: false;"
-            loading-screen="enabled: false;"
-            arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-            id="scene"
+            arjs
             embedded
+            renderer="logarithmicDepthBuffer: true;"
+            vr-mode-ui="enabled: false;"
             gesture-detector
+            id="scene"            
         >
+            <a-assets>
+                <a-asset-item
+                id="sofc"
+                src="assets/Housing_New.gltf"
+                >
+                </a-asset-item>
+            </a-assets>
+
             <a-marker
                 type="pattern"
                 preset="custom"
@@ -29,12 +40,16 @@
                 cursor="fuse: false; rayOrigin: mouse;"
                 id="markerA"
             >
-                <a-entity id="sofc" gltf-model="assets/Housing_New.gltf" scale="2 2 2" rotation="0 180 0"></a-entity>
+                <a-entity
+                    id="sofc-model"
+                    gltf-model="#sofc"
+                    position="0 0 0"
+                    scale="2 2 2"
+                    rotation="0 180 0"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
             </a-marker>
-            <a-entity
-                light="type: spot; target: #sofc"
-                position="10 5 20">
-            </a-entity>
             <a-light
                 type="directional"
                 position="-5 10 -5"
