@@ -23,6 +23,14 @@
             gesture-detector
             id="scene"            
         >
+            <a-assets>
+                <a-asset-item
+                id="sofc"
+                src="assets/Housing_New.gltf"
+                >
+                </a-asset-item>
+            </a-assets>
+
             <a-marker
                 type="pattern"
                 preset="custom"
@@ -34,9 +42,8 @@
             >
                 <a-entity
                     id="sofc-model"
-                    gltf-model="assets/Housing_New.gltf"
+                    gltf-model="#sofc"
                     scale="2 2 2"
-                    rotation="0 180 0"
                     class="clickable"
                     gesture-handler
                 ></a-entity>
