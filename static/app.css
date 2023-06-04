@@ -1,17 +1,18 @@
 #info {
     position: absolute;
     z-index: 10;
-    top: 0;
+    bottom: 0;
     left: 0;
-    width: 50px;
+    width: 75px;
     padding: 10px 0;
-    height: 50px; 
+    height: 75px; 
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 1;
     background-color: rgba(0, 90, 255, 0.7);
     color: #ffffff;
+    font-size: 2rem;
   }
 
 #infoButton {
