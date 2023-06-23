@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>SOFC AR</title>
+        <title>SOFC AR Business Card</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
         <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
@@ -23,7 +23,7 @@
     </head>
 
     <body style="margin: 0; overflow: hidden;">
-        <a-scene
+        <a-scene loading-screen="dotsColor: #00884a; backgroundColor: #00884a;"
             arjs
             embedded
             renderer="logarithmicDepthBuffer: true;"
@@ -35,7 +35,7 @@
             <a-assets>
                 <a-asset-item
                 id="sofc"
-                src="assets/Housing_New.gltf"
+                src="assets/SOFC_model.gltf"
                 >
                 </a-asset-item>
             </a-assets>
@@ -51,7 +51,7 @@
                 <a-entity
                     id="sofc-model"
                     gltf-model="#sofc"
-                    scale="1 1 1"
+                    scale="2 2 2"
                     position="0 0 0"
                     rotation="0 180 0"
                     class="clickable"
@@ -125,37 +125,25 @@
                 </div>
               
                 <!--Body-->
-                <div class="modal-body justify-content-center ">               
-                    <div class="row">
-                      <div class="embed-responsive embed-responsive-16by9 z-depth-1-half mb-4">
+                <div class="modal-body">               
+                    <div class="row justify-content-center">
+                      <div class="mb-4">
                         <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/1-cb_fy-1Kg" allowfullscreen="" title="Hydrogen technologies at Bosch"></iframe>
                       </div>
                     </div>  
 
                     <div class="row justify-content-center">
-                        <h6 class="col-3">Visit us!</h6>
+                        <h6 class="col-4">Visit us!</h6>
                         <!--Web-->                        
                         <div class="col">
                             <a type="button" href="https://www.bosch-hydrogen-energy.com">
                                 <i class="bi bi-globe"></i>
                             </a>
                         </div>
-                        <!--Facebook-->
-                        <div class="col">
-                            <a type="button" href="https://www.facebook.com/BoschGlobal">
-                                <i class="bi bi-facebook"></i>
-                            </a>
-                        </div>
                         <!--Twitter-->
                         <div class="col">                            
                             <a type="button" href="https://www.twitter.com/BoschGlobal">
                                 <i class="bi bi-twitter"></i>
-                            </a>
-                        </div>
-                        <!--Youtube-->
-                        <div class="col">                            
-                            <a type="button" href="https://www.youtube.com/@bosch_hydrogen_energy">
-                                <i class="bi bi-youtube"></i>
                             </a>
                         </div>
                         <!--Linkedin-->
@@ -169,7 +157,7 @@
         
                 <!--Footer-->
                 <div class="modal-footer justify-content-between">
-                    <div>
+                    <div id="author">
                         <small><i>by <b><a href="https://www.linkedin.com/in/vitodegaetano">Vito De Gaetano</a></b></i></small>
                     </div>
                     <div>
