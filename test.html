@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Modal with Two-Line Header</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 20px auto; /* 20px from the top and centered */
+      padding: 20px;
+      max-width: 600px;
+      position: relative;
+    }
+
+    /* Two-Line Header Styles */
+    .header {
+      display: block;
+      align-items: center;
+    }
+
+    .header-image {
+      width: 100%;
+      height: 10px;
+      object-fit: fill;
+    }
+
+    .header-text {
+      flex: 1;
+      text-align: center;
+    }
+
+    .header-text h2 {
+      margin: 0;
+    }
+
+    .header-button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="header">
+        <img src="static/colored_bar.jpg" class="header-image" alt="Header Image">
+        <div class="row">
+          <h5 id="modalTitle">Information</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+      
+      <p>Modal content goes here.</p>
+    </div>
+  </div>
+
+  <button onclick="openModal()">Open Modal</button>
+
+  <script>
+    function openModal() {
+      document.getElementById("myModal").style.display = "block";
+    }
+  </script>
+</body>
+</html>

@@ -1,176 +1,81 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>SOFC AR Business Card</title>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-        <meta http-equiv="Pragma" content="no-cache" />
-        <meta http-equiv="Expires" content="0" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-        <link rel="stylesheet" href="static/app.css">
-        <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+<head>
+  <title>Splash Screen</title>
+  <style>
+    body {
+      background-color: #f1f1f1;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>        
-        
-        <script src="gesture-detector.js"></script>
-        <script src="gesture-handler.js"></script>
+    h1 {
+      color: #333;
+    }
 
-    </head>
+    p {
+      color: #666;
+      font-size: 18px;
+      margin-bottom: 30px;
+      text-align: left;
+    }
 
-    <body style="margin: 0; overflow: hidden;">
-        <a-scene loading-screen="dotsColor: #00884a; backgroundColor: #00884a;"
-            arjs
-            embedded
-            renderer="logarithmicDepthBuffer: true;"
-            vr-mode-ui="enabled: false;"
-            gesture-detector
-            light="defaultLightsEnabled: false"
-            id="scene"            
-        >
-            <a-assets>
-                <a-asset-item
-                id="sofc"
-                src="assets/SOFC_model.gltf"
-                >
-                </a-asset-item>
-            </a-assets>
-            <a-marker
-                type="pattern"
-                preset="custom"
-                url="assets/SOFC-marker.patt"
-                raycaster="objects: .clickable"
-                emitevents="true"
-                cursor="fuse: false; rayOrigin: mouse;"
-                id="markerA"
-            >
-                <a-entity
-                    id="sofc-model"
-                    gltf-model="#sofc"
-                    scale="2 2 2"
-                    position="0 0 0"
-                    rotation="0 180 0"
-                    class="clickable"
-                    gesture-handler
-                ></a-entity>
-                <a-light
-                    type="directional"
-                    position="-1 2 -1"
-                    intensity="1"
-                    color="white"
-                    target="#sofc-model"
-                    >
-                </a-light>
-                <a-light
-                    type="directional"
-                    position="1 2 2"
-                    intensity="1"
-                    color="white"
-                    target="#sofc-model"
-                >
-                <a-light
-                    type="directional"
-                    position="-1 -1 -2"
-                    intensity="1"
-                    color="white"
-                    target="#sofc-model"
-                >        
-                <a-light
-                    type="directional"
-                    position="-2 0 1"
-                    intensity="1"
-                    color="white"
-                    target="#sofc-model"
-                >   
-                <a-light
-                    type="directional"
-                    position="-2 -2 1"
-                    intensity="1"
-                    color="white"
-                    target="#sofc-model"
-                >                                           
-                </a-light>
-            </a-marker>   
-            <a-entity camera></a-entity>>
-        </a-scene>
+    .center-block {
+      margin: 50px auto;
+      max-width: 600px;
+      text-align: center;
+    }
 
-        <!-- Info Button -->
-        <div id="info">
-              <a class="justify-content-center" id="infoButton" ><i class="bi bi-info-circle"></i></a>
-        </div>
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      text-decoration: none;
+      background-color: #4CAF50;
+      color: #fff;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      margin-top: 50px;
+    }
 
-        <!-- Scan Message -->
-        <div id="scan">
-            <p><i class="bi bi-camera"></i> <span>Searching</span>
-            </p>
-        </div>
+    .button:hover {
+      background-color: #45a049;
+    }
 
-        <!-- Modal InfoBox -->
-        <div class="modal fade show modal-lg" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModal" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-        
-              <!--Content-->
-              <div class="modal-content">
-                
-                <!--Header-->
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalTitle">Information</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-              
-                <!--Body-->
-                <div class="modal-body">               
-                    <div class="row justify-content-center">
-                      <div class="mb-4">
-                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/1-cb_fy-1Kg" allowfullscreen="" title="Hydrogen technologies at Bosch"></iframe>
-                      </div>
-                    </div>  
+    ul {
 
-                    <div class="row justify-content-center">
-                        <h6 class="col-4">Visit us!</h6>
-                        <!--Web-->                        
-                        <div class="col">
-                            <a type="button" href="https://www.bosch-hydrogen-energy.com">
-                                <i class="bi bi-globe"></i>
-                            </a>
-                        </div>
-                        <!--Twitter-->
-                        <div class="col">                            
-                            <a type="button" href="https://www.twitter.com/BoschGlobal">
-                                <i class="bi bi-twitter"></i>
-                            </a>
-                        </div>
-                        <!--Linkedin-->
-                        <div class="col">                            
-                            <a type="button" href="https://www.linkedin.com/showcase/bosch-hydrogen-energy">
-                                <i class="bi bi-linkedin"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-        
-                <!--Footer-->
-                <div class="modal-footer justify-content-between">
-                    <div id="author">
-                        <small><i>by <b><a href="https://www.linkedin.com/in/vitodegaetano">Vito De Gaetano</a></b></i></small>
-                    </div>
-                    <div>
-                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-                    </div>
-        
-                </div>
-        
-              </div>
-              <!--/.Content-->
-        
-            </div>
-        </div>
-        <script src="static/app.js"></script>
-    </body>
+      text-align: left;
+      padding: 20px;
+      margin-bottom: 0;
+      color: #666;
+    }
+
+    li {
+      margin-bottom: 30px;
+      list-style: lower-alpha inside;
+    }
+  </style>
+</head>
+<body>
+  <h1>SOFC AR Business Card</h1>
+
+
+  <div class="center-block">
+    <p>Follow these instructions to start with the application:</p>    
+    <ul>
+      <li>Accept permission to access camera and gesture control</li>
+      <li>Scan the marker entirely</li>
+      <li>Click on the button "i" for the info page</li>
+      <li>Use these gestures to interact with the object:</li>
+    </ul>
+    <!-- Add your image here -->
+    <img src="static/gestures.png" alt="Placeholder Image" width="340">
+
+    <br>
+
+    <a href="ar-bcard.html" class="button">Continue</a>
+  </div>
+</body>
 </html>
+
