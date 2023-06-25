@@ -16,21 +16,21 @@
 
     p {
       color: #666;
-      font-size: 18px;
+      font-size: 1.8rem;
       margin-bottom: 30px;
       text-align: left;
     }
 
     .center-block {
       margin: 50px auto;
-      max-width: 600px;
+      max-width: 80%;
       text-align: center;
     }
 
     .button {
       display: inline-block;
       padding: 10px 20px;
-      font-size: 16px;
+      font-size: 2rem;
       text-decoration: none;
       background-color: #4CAF50;
       color: #fff;
@@ -52,8 +52,13 @@
     }
 
     li {
+      font-size: 1.5rem;
       margin-bottom: 30px;
-      list-style: lower-alpha inside;
+      list-style: lower-alpha;
+    }
+
+    #gestures {
+      width: 100%;
     }
   </style>
 </head>
@@ -62,7 +67,7 @@
 
 
   <div class="center-block">
-    <p>Follow these instructions to start with the application:</p>    
+    <p>Follow these instructions to start the application:</p>    
     <ul>
       <li>Accept permission to access camera and gesture control</li>
       <li>Scan the marker entirely</li>
@@ -70,12 +75,13 @@
       <li>Use these gestures to interact with the object:</li>
     </ul>
     <!-- Add your image here -->
-    <img src="static/gestures.png" alt="Placeholder Image" width="340">
+    <img id="gestures" src="static/gestures.png" alt="Placeholder Image">
 
     <br>
-
-    <a href="ar-bcard.html" class="button">Continue</a>
   </div>
+  
+  <a href="ar-bcard.html" class="button">Continue</a>
+
 </body>
 </html>
 
