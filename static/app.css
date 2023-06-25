@@ -66,24 +66,13 @@
 .modal-title {
   display: flex;
   text-align: center;
-  -ms-flex-wrap: wrap;
 }
 
 .modal-video {
-  /* display: flex; */
-  /* justify-content: center; */
-  /* justify-items: center; */
   margin-bottom: 2rem;
-  /* width: 85%; */
   overflow: hidden;
 }
 
-.modal-iframe {
-  /* width: fit-content; */
-  /* height: fit-content; */
-  /* border: none; */
-  /* position: absolute; */
-  /* top: 50%; */
-  /* left: 50%; */
-  /* transform: translate(-50%, -50%); */
+.infolink {
+  font-size: 1.2rem;
 }
